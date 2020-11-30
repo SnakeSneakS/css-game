@@ -1,0 +1,16 @@
+body{
+    background-color: white;
+}
+
+.scene{
+    position:relative;
+    background-color: rgb(82, 82, 82);
+    width:800px;
+    height:800px;
+    top:auto;
+    left:auto;
+}
+
+input:checked + p+p{
+    background-color: thistle;
+}
