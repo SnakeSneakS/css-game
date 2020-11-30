@@ -1,0 +1,88 @@
+:root{
+    --screenWidth:800px;
+    --screenHeight:600px;
+    --JumpButtonWidth:100px;
+    --JumpButtonHeight:80px;
+}
+
+
+body{
+    background-color: white;
+}
+
+.scene{
+    position:relative;
+    background-color: rgb(82, 82, 82);
+    width:var(--screenWidth);
+    height:var(--screenHeight);
+    top:auto;
+    left:auto;
+    /*overflow:hidden;*/
+}
+
+.JumpButtonArea{
+    position:absolute;
+    right:80px;
+    bottom:80px;
+    width:var(--JumpButtonWidth);
+    height:var(--JumpButtonHeight);
+    background-color: black;
+    /*overflow: hidden;*/
+}
+
+.JumpButtonArea span{
+    position: absolute;
+}
+.JumpButtonArea>.canJump{
+    display:inline-block;
+    color:red;
+}
+.JumpButtonArea>.cannotJump{
+    display:none;
+    color:black;
+}
+
+#SnakeJumpTrigger:checked ~ .screen>.JumpButtonArea>.canJump{
+    display: none;
+}
+#SnakeJumpTrigger:checked ~ .screen>.JumpButtonArea>.cannotJump{
+    display: inline-block;
+}
+
+.jumpButton{
+    position:absolute;
+    width:var(--JumpButtonWidth);
+    height:var(--JumpButtonHeight);
+    display:none;
+}
+
+
+.NormalJump{
+    position:absolute;
+    display:inline-block;
+    background-color: rgb(238, 255, 163);
+}
+
+.EssentialJump{
+    background-color: red;
+}
+
+.EssentialJump:nth-child(n){
+    left:0px;
+}
+.EssentialJump:nth-child(3){
+    left:0px;
+}
+.EssentialJump:nth-child(4){
+    left:0px;
+}
+
+
+@keyframes JustAppear{
+    0%{
+        display: inline-block;
+    }
+    100%{
+        display: inline-block;
+    }
+}

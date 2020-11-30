@@ -9,8 +9,15 @@
 <body>
     <h1>Snake</h1>
     <div class="scene">
+        <input type="checkbox" id="StartGame">StartGame
         <input type="checkbox" id="SnakeJumpTrigger">Jump
         <input type="checkbox" id="SnakeFireTrigger">Fire
+
+        <label for="StartGame">
+            <div class="TitleScene">
+                <h1>PLAY!!</h1>
+            </div>
+        </label>
         
         <div class="stage">
             <div class="obj">
@@ -22,9 +29,14 @@
         <div class="screen">
             <div class="JumpButtonArea">
                 <div class="JumpButtons">
-                    <label class="NormalJump"></label>
-                    <label class="EssentialJump" for="SnakeJumpTrigger"></label>
+                    <label class="jumpButton NormalJump" for="SnakeJumpTrigger"></label>
+                    <label class="jumpButton EssentialJump" for="SnakeJumpTrigger"></label>
+                    <label class="jumpButton EssentialJump" for="SnakeJumpTrigger"></label>
+                    <label class="jumpButton EssentialJump" for="SnakeJumpTrigger"></label>
+                    
                 </div>
+                <span class="canJump">Jump!</span>
+                <span class="cannotJump">Reset</span>
             </div>
             <div class="FireButtonArea">
                 <span class="FireButton"></span>
