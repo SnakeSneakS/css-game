@@ -21,7 +21,11 @@ body{
 }
 
 .checkbox{
-    /*display:none;*/
+    /*debug時は見える様にする(absolute~overflowまで全てコメントアウト)*/
+    /*display:none;/*これで見えなくしたらcounterが効かない*/
+    position: absolute;
+    width:0px;
+    overflow: hidden;
 }
 
 
@@ -58,7 +62,7 @@ body{
     height:var(--ScreenHeight);
     top:auto;
     left:auto;
-    /*overflow:hidden;*/
+    overflow:hidden;/*ステージを作る時には無効にする*/
 }
 
 
@@ -87,7 +91,7 @@ body{
 
 /*stage*/
     /*stage*/
-.stage{
+#StartGame:checked ~ .stage{
     position: absolute;
     width:var(--ScreenWidth);
     height:var(--ScreenHeight);
@@ -144,6 +148,7 @@ body{
 .stage>.ground>span:nth-of-type(9){ left:3100px; width:330px;}
 .stage>.ground>span:nth-of-type(10){ left:3600px; width:100px;}
 .stage>.ground>span:nth-of-type(11){ left:3800px; width:100px;}
+.stage>.ground>span:nth-of-type(11)::before{ color:yellow;content:"GOAL!";font-size:28px;}
 
 
 
@@ -181,7 +186,7 @@ body{
     z-index: var(--buttonZ2);
 }
 .EventJumpButton>.jumpButton{
-    background-color: white;
+    /*background-color: white;/*debug時は色変える*/
     width: 0px;
     overflow: hidden;
 }
@@ -198,24 +203,24 @@ body{
 
 
 /*イベントジャンプボタンのタイミング*/ /*name duration timing-function delay iteration-count(e.g. 1, infinite)*/
-.EventJumpButton:nth-of-type(1)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 2.0s;}
-.EventJumpButton:nth-of-type(2)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 3.6s;}
-.EventJumpButton:nth-of-type(3)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 6.5s;}
-.EventJumpButton:nth-of-type(4)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 9.6s;}
-.EventJumpButton:nth-of-type(5)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 10.8s;}
-.EventJumpButton:nth-of-type(6)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 12.6s;}
-.EventJumpButton:nth-of-type(7)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 15.5s;}
-.EventJumpButton:nth-of-type(8)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 17.5s;}
-.EventJumpButton:nth-of-type(9)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 19.3s;}
-.EventJumpButton:nth-of-type(10)>label:nth-of-type(1){ animation: JustAppearButton 0.5s linear 23.0s;}
-.EventJumpButton:nth-of-type(11)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 24.5s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(1)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 2.0s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(2)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 3.6s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(3)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 6.5s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(4)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 9.6s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(5)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 10.8s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(6)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 12.6s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(7)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 15.5s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(8)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 17.5s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(9)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 19.0s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(10)>label:nth-of-type(1){ animation: JustAppearButton 0.5s linear 23.0s;}
+#StartGame:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(11)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 24.5s;}
 
 
 
 /*イベントジャンプをした時などイベント記述*/
     /*落下イベント*/
-.snakePos{ animation:Fall 1s linear 2.8s forwards}
-.GameOver{ animation:AppearFillingWidth 1s linear 4.0s forwards}
+#StartGame:checked ~ .snakePos{ animation:Fall 1s linear 2.8s forwards}
+#StartGame:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 4.0s forwards}
 #jump1:checked ~ .snakePos{ animation:Fall 1s linear 7.3s forwards}
 #jump1:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 8.5s forwards}
 #jump3:checked ~ .snakePos{ animation:Fall 1s linear 10.4s forwards}
