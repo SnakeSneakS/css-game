@@ -93,24 +93,24 @@ body{
     /*transform: scale(1.2,1.2);*/
 }
 /*攻撃*/
-#SnakeFireTrigger:checked ~ .snakePos>.snake>.fire{
+#SnakeFireTrigger:checked ~ .snakePos>.snakeScale>.snake>.fire{
     animation-name: SnakeFire_F;
     animation-duration: 3s;
     animation-iteration-count: initial;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
-#SnakeFireTrigger:checked ~ .snakePos>.snake>.head,#SnakeFireTrigger:checked ~ .snakePos>.snake>.tongue{
+#SnakeFireTrigger:checked ~ .snakePos>.snakeScale>.snake>.head,#SnakeFireTrigger:checked ~ .snakePos>.snakeScale>.snake>.tongue{
     animation-name: SnakeFire_H;
     animation-duration: 3s;
     animation-iteration-count: initial;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
-#SnakeFireTrigger:checked ~ .snakePos>.snake>.body_1{
+#SnakeFireTrigger:checked ~ .snakePos>.snakeScale>.snake>.body_1{
    animation-name:idle;
 }
-#SnakeFireTrigger:checked ~ .snakePos>.snake>.neck{
+#SnakeFireTrigger:checked ~ .snakePos>.snakeScale>.snake>.neck{
     animation-name: SnakeFire_N;
     animation-duration: 3s;
     animation-iteration-count: initial;

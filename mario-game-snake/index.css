@@ -1,0 +1,513 @@
+:root{
+    --ScreenWidth:800px;
+    --ScreenHeight:600px;
+    --JumpButtonWidth:100px;
+    --JumpButtonHeight:80px;
+    --JumpCT:0.9s;
+    --GroundHeight:50px;
+    --buttonZ1:100;
+    --buttonZ2:101;
+    --sceneZ1:1000;/*GameOver, GameClear*/
+    --sceneZ2:1002;/*Title*/
+    --coinZ:1001;/*Coin*/
+    --buttonResetZ:100;
+    --TotalCoinNum: "9";
+    --CoinCounter: CoinCounter;
+}
+
+
+body{
+    background-color: white;
+}
+
+.checkbox{
+    /*display:none;*/
+}
+
+
+/*titleの処理*/
+.title{
+    /*display: none;/*デバック時は見えなくする*/
+    position: absolute;
+    width:var(--ScreenWidth);
+    height: var(--ScreenHeight);
+    background-color: black;
+    z-index: var(--sceneZ2);
+}
+.title>label>span{
+    position: absolute;
+    color:white;
+    top:50%;
+    left:50%;
+    font-size: 50px;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    background-color: turquoise;
+}
+#StartGame:checked ~ .title{
+    display: none;
+}
+
+
+
+/*ゲームを治める範囲*/
+.scene{
+    position:relative;
+    background-color: rgb(82, 82, 82);
+    width:var(--ScreenWidth);
+    height:var(--ScreenHeight);
+    top:auto;
+    left:auto;
+    /*overflow:hidden;*/
+}
+
+
+
+
+/*Coin*/
+.CoinDiv{
+    position: absolute;
+    color: yellow;
+    font-size:64px;
+    z-index: var(--coinZ);
+}
+
+.CoinDiv>.CoinNumGained::before{
+    content:counter(var(--CoinCounter));
+}
+.CoinDiv>.CoinNumGained::after{
+    counter-reset: var(--CoinCounter);
+    content:var(--TotalCoinNum);
+}    
+
+
+
+
+
+
+/*stage*/
+    /*stage*/
+.stage{
+    position: absolute;
+    width:var(--ScreenWidth);
+    height:var(--ScreenHeight);
+    bottom:0px;
+    /*開始すると、スクロールを開始する*/
+    animation-name: StageScroll1;
+    animation-duration: 30s;
+    animation-iteration-count: initial;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+    /*coin*/
+.stage>.coin>span{
+    position: absolute;
+    bottom:180px;
+    background-color: yellow;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+
+    animation-name: RotatingY1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.stage>.coin>span:nth-of-type(1){ left:700px;}
+.stage>.coin>span:nth-of-type(2){ left:950px;}
+.stage>.coin>span:nth-of-type(3){ left:1300px;}
+.stage>.coin>span:nth-of-type(4){ left:1900px;}
+.stage>.coin>span:nth-of-type(5){ left:2100px;}
+.stage>.coin>span:nth-of-type(6){ left:2500px;}
+.stage>.coin>span:nth-of-type(7){ left:2970px;}
+.stage>.coin>span:nth-of-type(8){ left:3000px;}
+.stage>.coin>span:nth-of-type(9){ left:3030px;}
+
+
+    /*ground*/
+.stage>.ground>span{
+    position: absolute;
+    bottom:0px;
+    background-color: brown;
+}
+.stage>.ground>span{ height:var(--GroundHeight);}
+
+.stage>.ground>span:nth-of-type(1){ left:0px; width:700px;}
+.stage>.ground>span:nth-of-type(2){ left:800px; width:500px;}
+.stage>.ground>span:nth-of-type(3){ left:1400px; width:300px;}
+.stage>.ground>span:nth-of-type(4){ left:1800px; width:100px;}
+.stage>.ground>span:nth-of-type(5){ left:2000px; width:80px;}
+.stage>.ground>span:nth-of-type(6){ left:2180px; width:300px;}
+.stage>.ground>span:nth-of-type(7){ left:2600px; width:150px;}
+.stage>.ground>span:nth-of-type(8){ left:2850px; width:100px;}
+.stage>.ground>span:nth-of-type(9){ left:3100px; width:330px;}
+.stage>.ground>span:nth-of-type(10){ left:3600px; width:100px;}
+.stage>.ground>span:nth-of-type(11){ left:3800px; width:100px;}
+
+
+
+
+
+
+/*ジャンプ関係*/
+    /*button自体の設定*/
+.JumpButtonArea{
+    position:absolute;
+    right:80px;
+    bottom:80px;
+    width:var(--JumpButtonWidth);
+    height:var(--JumpButtonHeight);
+    background-color: black;
+    overflow: hidden;
+}
+
+
+.jumpButton{
+    position:absolute;
+    width:var(--JumpButtonWidth);
+    height:var(--JumpButtonHeight);
+    overflow: hidden;
+    background-color: rgb(238, 255, 163);
+    font-size:32px;
+}
+
+.NormalJumpButton>.jumpButton:nth-of-type(1){
+    color:red;
+    z-index: var(--buttonZ1);
+}
+.NormalJumpButton>.jumpButton:nth-of-type(2){
+    width: 0px;
+    z-index: var(--buttonZ2);
+}
+.EventJumpButton>.jumpButton{
+    background-color: white;
+    width: 0px;
+    overflow: hidden;
+}
+.EventJumpButton>.jumpButton:nth-of-type(1){
+    color: red;
+    z-index: var(--buttonZ1);
+}
+.EventJumpButton>.jumpButton:nth-of-type(2){
+    z-index: var(--buttonZ2);
+}
+
+
+
+
+
+/*イベントジャンプボタンのタイミング*/ /*name duration timing-function delay iteration-count(e.g. 1, infinite)*/
+.EventJumpButton:nth-of-type(1)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 2.0s;}
+.EventJumpButton:nth-of-type(2)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 3.6s;}
+.EventJumpButton:nth-of-type(3)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 6.5s;}
+.EventJumpButton:nth-of-type(4)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 9.6s;}
+.EventJumpButton:nth-of-type(5)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 10.8s;}
+.EventJumpButton:nth-of-type(6)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 12.6s;}
+.EventJumpButton:nth-of-type(7)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 15.5s;}
+.EventJumpButton:nth-of-type(8)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 17.5s;}
+.EventJumpButton:nth-of-type(9)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 19.3s;}
+.EventJumpButton:nth-of-type(10)>label:nth-of-type(1){ animation: JustAppearButton 0.5s linear 23.0s;}
+.EventJumpButton:nth-of-type(11)>label:nth-of-type(1){ animation: JustAppearButton 0.7s linear 24.5s;}
+
+
+
+/*イベントジャンプをした時などイベント記述*/
+    /*落下イベント*/
+.snakePos{ animation:Fall 1s linear 2.8s forwards}
+.GameOver{ animation:AppearFillingWidth 1s linear 4.0s forwards}
+#jump1:checked ~ .snakePos{ animation:Fall 1s linear 7.3s forwards}
+#jump1:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 8.5s forwards}
+#jump3:checked ~ .snakePos{ animation:Fall 1s linear 10.4s forwards}
+#jump3:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 11.6s forwards}
+#jump4:checked ~ .snakePos{ animation:Fall 1s linear 11.8s forwards}
+#jump4:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 13.0s forwards}
+#jump5:checked ~ .snakePos{ animation:Fall 1s linear 13.3s forwards}
+#jump5:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 14.5s forwards}
+#jump6:checked ~ .snakePos{ animation:Fall 1s linear 16.3s forwards}
+#jump6:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 17.5s forwards}
+#jump7:checked ~ .snakePos{ animation:Fall 1s linear 18.3s forwards}
+#jump7:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 19.5s forwards}
+#jump8:checked ~ .snakePos{ animation:Fall 1s linear 20.1s forwards}
+#jump8:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 21.3s forwards}
+#jump9:checked ~ .snakePos{ animation:Fall 1s linear 23.8s forwards}
+#jump9:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 25.0s forwards}
+#jump10:checked ~ .snakePos{ animation:Fall 1s linear 25.3s forwards}
+#jump10:checked ~ .GameOver{ animation:AppearFillingWidth 1s linear 27.0s forwards}
+#jump11:checked ~ .snakePos{ animation:idle}
+#jump11:checked ~ .GameOver{ animation:idle}
+#jump11:checked ~ .GameClear{ animation:AppearFillingWidth 1s linear 1.0s forwards}
+    /*コインゲットイベント*/
+#jump1:checked{ counter-increment: var(--CoinCounter) 1;}
+#jump1:checked~.stage>.coin>span:nth-of-type(1){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump2:checked{ counter-increment: var(--CoinCounter) 1;}
+#jump2:checked~.stage>.coin>span:nth-of-type(2){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump3:checked{ counter-increment: var(--CoinCounter) 1;}
+#jump3:checked~.stage>.coin>span:nth-of-type(3){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump5:checked{ counter-increment: var(--CoinCounter) 1;}
+#jump5:checked~.stage>.coin>span:nth-of-type(4){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump6:checked{ counter-increment: var(--CoinCounter) 1;}
+#jump6:checked~.stage>.coin>span:nth-of-type(5){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump7:checked{ counter-increment: var(--CoinCounter) 1;}
+#jump7:checked~.stage>.coin>span:nth-of-type(6){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump9:checked{ counter-increment: var(--CoinCounter) 3;}
+#jump9:checked~.stage>.coin>span:nth-of-type(7){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump9:checked~.stage>.coin>span:nth-of-type(8){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+#jump9:checked~.stage>.coin>span:nth-of-type(9){ animation: JustDisappearButton 1.0s linear 0.3s forwards;}
+
+
+
+
+
+
+/*イベントジャンプ（ベース: ヘビのジャンプとボタンの動作）*/
+#jump1:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}/*押したボタン消す*/
+#jump1:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(1)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}/*resetボタン表示する*/
+#jump1a:checked ~ .ui>.JumpButtonArea{ animation: idle; }/*ボタンのアニメーションリセット*/
+#jump1a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(1)>label:nth-of-type(2){ width:0px;}/*resetボタン非表示*/
+#jump1:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}/*ヘビのジャンプ*/
+#jump1a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}/*ヘビのアニメーションリセット*/
+
+#jump2:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump2:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(2)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump2a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump2a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(2)>label:nth-of-type(2){ width:0px;}
+#jump2:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump2a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump3:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump3:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(3)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump3a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump3a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(3)>label:nth-of-type(2){ width:0px;}
+#jump3:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump3a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump4:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump4:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(4)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump4a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump4a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(4)>label:nth-of-type(2){ width:0px;}
+#jump4:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump4a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump5:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump5:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(5)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump5a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump5a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(5)>label:nth-of-type(2){ width:0px;}
+#jump5:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump5a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump6:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump6:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(6)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump6a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump6a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(6)>label:nth-of-type(2){ width:0px;}
+#jump6:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump6a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump7:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump7:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(7)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump7a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump7a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(7)>label:nth-of-type(2){ width:0px;}
+#jump7:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump7a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump8:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump8:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(8)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump8a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump8a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(8)>label:nth-of-type(2){ width:0px;}
+#jump8:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump8a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump9:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump9:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(9)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump9a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump9a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(9)>label:nth-of-type(2){ width:0px;}
+#jump9:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump9a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump10:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump10:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(10)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump10a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump10a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(10)>label:nth-of-type(2){ width:0px;}
+#jump10:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump10a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump11:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump11:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(11)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump11a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump11a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(11)>label:nth-of-type(2){ width:0px;}
+#jump11:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump11a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+#jump12:checked ~ .ui>.JumpButtonArea{ animation: JustDisappearButton var(--JumpCT);}
+#jump12:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(12)>label:nth-of-type(2){ width:var(--JumpButtonWidth);}
+#jump12a:checked ~ .ui>.JumpButtonArea{ animation: idle; }
+#jump12a:checked ~ .ui>.JumpButtonArea>.EventJumpDiv>.EventJumpButton:nth-of-type(12)>label:nth-of-type(2){ width:0px;}
+#jump12:checked ~ .snakePos>.snakeScale>.snake{ animation: SnakeJump var(--JumpCT) linear;}
+#jump12a:checked ~ .snakePos>.snakeScale>.snake{ animation: idle;}
+
+
+
+
+
+
+
+
+/*通常ジャンプ*/
+#SnakeJumpTrigger:checked ~ .ui>.JumpButtonArea{
+    animation-name: JustDisappearButton;
+    animation-duration: var(--JumpCT);
+    animation-iteration-count: initial;
+    animation-timing-function: linear;
+}
+#SnakeJumpTrigger:checked ~ .ui>.JumpButtonArea>.NormalJumpButton>.jumpButton:nth-of-type(1){
+    width: 0px;
+}
+#SnakeJumpTrigger:checked ~ .ui>.JumpButtonArea>.NormalJumpButton>.jumpButton:nth-of-type(2){
+    width: var(--JumpButtonWidth);
+}
+#SnakeJumpTrigger:checked ~ .snakePos>.snakeScale>.snake{
+    animation: SnakeJump var(--JumpCT) linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*GameOver*/
+.GameClear{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-color: black;
+}
+
+/*GameOver*/
+.GameOver{
+    position: absolute;
+    width:0%;
+    height:100%;
+    background: rgb(255,157,157);
+    background: linear-gradient(180deg, rgb(238, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    overflow: hidden;
+    z-index: var(--sceneZ1);
+}
+.GameOver>label>span{
+    position: absolute;
+    color:black;
+    top:50%;
+    left:50%;
+    font-size: 50px;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    background-color: rgb(85, 61, 69);
+}
+
+/*GameClear*/
+.GameClear{
+    position: absolute;
+    width:0%;
+    height:100%;
+    background: rgb(255,157,157);
+    background: linear-gradient(90deg, rgba(255,157,157,1) 0%, rgba(119,255,105,1) 45%, rgba(0,212,255,1) 100%);
+    overflow: hidden;
+    z-index: var(--sceneZ1);
+}
+.GameClear>label>span{
+    position: absolute;
+    color:rgb(240, 255, 200);
+    top:50%;
+    left:50%;
+    font-size: 50px;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    background-color: turquoise;
+}
+
+
+
+
+
+/*animations*/
+@keyframes JustAppearButton{
+    0%{
+        width: var(--JumpButtonWidth);
+    }
+    100%{
+        width: var(--JumpButtonWidth);
+    }
+}
+
+@keyframes JustDisappearButton{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 0px;
+    }
+}
+
+@keyframes StageScroll1{
+    0%{
+        transform:translateX(0px);
+    }
+    100%{
+        transform:translateX(-4000px);
+    }
+}
+
+@keyframes RotatingY1{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes OutAndIn{
+    0%{
+        display:none;
+    }            
+    100%{
+        display:inline-block;
+    } 
+}
+
+@keyframes ShowUnSeeArea{
+    0%{
+        transform: rotate(180deg) scale(0,0);
+    }
+    100%{
+        transform: rotate(360deg) scale(1,1);
+    }
+}
+
+@keyframes Fall{
+    0%{
+        transform:translateY(0px);
+    }
+    100%{
+        transform: translateY(500px);
+    }
+}
+
+@keyframes AppearFillingWidth{
+    0%{
+        width:0%;
+    }
+    100%{
+        width:100%;
+    }
+}
+
+@keyframes idle{
+
+}
+
