@@ -15,6 +15,9 @@
     --CoinCounter: CoinCounter;
 }
 
+html{
+    touch-action: manipulation;/*ダブルタップズーム防止 in safari*/
+}
 
 body{
     background-color: white;
