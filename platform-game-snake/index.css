@@ -59,6 +59,7 @@ body{
 
 /*ゲームを治める範囲*/
 .scene{
+    position:relative;
     background-color: rgb(82, 82, 82);
     width:var(--ScreenWidth);
     height:var(--ScreenHeight);
