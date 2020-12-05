@@ -34,25 +34,22 @@ body{
 }
 
 .box>div:nth-child(1){
-    transform:rotateY(0deg) translate3d(0,0,-30px);
+    transform:rotateY(0deg) translate3d(0,0,30px);
 }
 .box>div:nth-child(2){
     transform:rotateY(90deg) translate3d(0,0,30px);
 }
-
 .box>div:nth-child(3){
-    transform:rotateY(180deg) translate3d(0,0,-30px);
+    transform:rotateY(180deg) translate3d(0,0,30px);
 }
-
 .box>div:nth-child(4){
     transform:rotateY(-90deg) translate3d(0,0,30px);
 }
-
 .box>div:nth-child(5){
-    transform:rotateX(90deg) translate3d(0,0,-30px);
+    transform:rotateX(90deg) translate3d(0,0,30px);
 }
 .box>div:nth-child(6){
-    transform:rotateX(-90deg) translate3d(0,0,-30px);
+    transform:rotateX(-90deg) translate3d(0,0,30px);
 }
 
 
