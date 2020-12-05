@@ -21,6 +21,7 @@ html{
 
 body{
     background-color: white;
+    width:var(--JumpButtonWidth);
 }
 
 .checkbox{
