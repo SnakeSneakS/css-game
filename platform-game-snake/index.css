@@ -1,5 +1,5 @@
 :root{
-    --ScreenWidth:800px;
+    --ScreenWidth:600px;
     --ScreenHeight:600px;
     --JumpButtonWidth:100px;
     --JumpButtonHeight:80px;
@@ -21,7 +21,6 @@ html{
 
 body{
     background-color: white;
-    width:var(--ScreenWidth);
 }
 
 .checkbox{
