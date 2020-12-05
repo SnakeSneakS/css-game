@@ -207,24 +207,24 @@ iframe: ↓
 
 ## ふり返り
 ---
-- **ふりかえり①**
-　<strong>　　　　　　
-　＼＿（**）＿／　　　／　意味なんて！
-　　　　｜　　　　　／　求めないのが！！
-    　　　　｜　　　　　＼　　<span style="font-size:32px;color:red;">浪漫</span> 
-　　　／　＼　　　　　＼　じゃないのか！！！
+- **ふりかえり①**  
+　<strong>  
+　＼＿（**）＿／　　　／　意味なんて！  
+　　　　｜　　　　　／　求めないのが！！  
+    　　　　｜　　　　　＼　　<span style="font-size:32px;color:red;">浪漫</span>   
+　　　／　＼　　　　　＼　じゃないのか！！！  
 　</strong>
  
  <strong style="color:red; font-size:12px;"> ？？？　</strong>
 
 ---
 
-- **ふりかえり②**
-　　　　　　　　　＿
-　　　　　　　　／　-＼　　／ そこに
-＿＿ヘビ＿＿＿／　／￣　／　CSSが
-＼＿＿＿＿＿＿＿／　　　　＼　あるから　　　
-　　　　　　　　　　　　　　＼ 🐍（キリッ）
+- **ふりかえり②**  
+　　　　　　　　　＿  
+　　　　　　　　／　-＼　　／ そこに  
+＿＿ヘビ＿＿＿／　／￣　／　CSSが  
+＼＿＿＿＿＿＿＿／　　　　＼　あるから  　
+　　　　　　　　　　　　　　＼ 🐍（キリッ）  
               
 <strong style="color:red; font-size:28px;"> そこにJavascriptもありますね ニッコリ :) </strong>
 
