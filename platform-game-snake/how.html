@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stage like a mario game</title>
-    <link rel="stylesheet" href="4.css">
+    <link rel="stylesheet" href="how.css">
+    <link rel="stylesheet" href="snake.css">
+    <!--<script src="timer.js" defer="defer"></script>--><!--debug用-->
 </head>
 <body>
     <h1>Snake</h1>
@@ -38,6 +40,19 @@
         <input type="checkbox" id="jump10a" class="checkbox jumpButtonCheck"><span class="checkbox">jump10a</span>
         <input type="checkbox" id="jump11a" class="checkbox jumpButtonCheck"><span class="checkbox">jump11a</span>
         <input type="checkbox" id="jump12a" class="checkbox jumpButtonCheck"><span class="checkbox">jump12a</span>
+        
+
+        <div class="snakePos">
+            <div class="snakeScale">
+                <div class="snake">
+                    <span class="fire"></span>    
+                    <span class="tongue"></span>
+                    <span class="head">・</span>      
+                    <span class="neck"></span>
+                    <span class="body_1"></span> 
+                </div>
+            </div>
+        </div>
 
 
         <div class="title">
@@ -56,24 +71,28 @@
         </div>
 
         <div class="ui">
+            <div class="CoinDiv">
+                <span>Coin: </span><label type="checkbox" class="CoinNumGained CoinCheck" cheched="checked">/</label>
+            </div>
             <div class="JumpButtonArea">
-                <div class="JumpButtons">
-                    <div class="NormalJumpButton">
-                        <label class="jumpButton" for="SnakeJumpTrigger">Jump!</label>
-                        <label class="jumpButton" for="SnakeJumpTrigger">Reset</label>
-                    </div>
-                    <div class="EventJumpButton">
-                        <label class="jumpButton" for="jump1">Jump!</label>
-                        <label class="jumpButton" for="jump1a">Reset</label>
-                    </div>
-                    <!--<label class="jumpButton EssentialJump" for="jump2"></label>
-                    <label class="jumpButton EssentialJump" for="jump3"></label>-->
-                    
+                <div class="NormalJumpButton">
+                    <label class="jumpButton" for="SnakeJumpTrigger">Jump!</label>
+                    <label class="jumpButton" for="SnakeJumpTrigger">Reset</label>
                 </div>
-                <!--
-                <span class="canJump">Jump!</span>
-                <span class="cannotJump">Reset</span>
-                -->
+                <div class="EventJumpDiv"><!--12-->
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump1">Jump!</label><label class="jumpButton" for="jump1a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump2">Jump!</label><label class="jumpButton" for="jump2a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump3">Jump!</label><label class="jumpButton" for="jump3a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump4">Jump!</label><label class="jumpButton" for="jump4a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump5">Jump!</label><label class="jumpButton" for="jump5a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump6">Jump!</label><label class="jumpButton" for="jump6a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump7">Jump!</label><label class="jumpButton" for="jump7a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump8">Jump!</label><label class="jumpButton" for="jump8a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump9">Jump!</label><label class="jumpButton" for="jump9a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump10">Jump!</label><label class="jumpButton" for="jump10a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump11">Jump!</label><label class="jumpButton" for="jump11a">Reset</label></div>
+                    <div class="EventJumpButton"><label class="jumpButton" for="jump12">Jump!</label><label class="jumpButton" for="jump12a">Reset</label></div>                    
+                </div>
             </div>
             <div class="FireButtonArea">
                 <span class="FireButton"></span>
@@ -82,17 +101,17 @@
 
         <div class="GameOver">
             <label>
-                <span>Game Over...</span>
+                <span>Game Over...  <a href="" style="background-color: cornflowerblue;">retry</a></span>
             </label>
         </div>
 
         <div class="GameClear">
             <label>
-                <span>Game Clear!!</span>
+                <span>Game Clear!!   <a href="https://twitter.com/intent/tweet?text=&url=https://adventar.org/calendars/5408&hashtags=%E3%81%BF%E3%81%9955%E4%BB%A3%E3%82%A2%E3%83%89%E3%82%AB%E3%83%AC,12%E6%9C%8822%E6%97%A5" target="_blank" rel="nofollow noopener noreferrer"  style="background-color:cornflowerblue">tweetする</a></span>
             </label>
         </div>
 
-    </div>
+    </div><!--#みす55代アドカレ #12月22日　https://adventar.org/calendars/5408-->
 
 </body>
 </html>
