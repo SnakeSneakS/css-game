@@ -6,17 +6,18 @@
 
 ## What is この記事?
 - これは[みす55代非公式アドベントカレンダー](https://adventar.org/calendars/5408)22日目の記事となります。*イケイケwriter* がいっぱいるので是非ともご覧あれ〜〜
-- この記事ではCSSでゲームを作ることについて**＜深夜テンションで＞**あれこれ話します。
+- 本記事では **「htmlとcssだけでゲームを作るぞ!!** という決意の元
+*<span style="color:red; font-size:48px;">WITHOUT JAVASCRIPT!!</span>*
+でゲームを作成するという~~馬鹿な~~楽しい挑戦について変なテンションであれこれ話します。~といっても苦労話はほぼ全カット。お笑い芸人もﾄﾎﾎ...~
+- 目標としては **読んだ方が「cssでゲームを作るイメージ」を持てるようになること**です。多少html&cssについての知識がないと辛い部分も途中あるかもしれませんが、その場合は一気に飛ばして<a href="game">ゲーム</a>だけでも遊んでくだされば幸いです。
 
 
 
 
 
 ## Begin with 〜はじめに〜
-- こんにちは、こんばんは、misw55代のヘビです。普段はunityを使ってゲーム作ることがしばしばです。
-- 本記事では「~htmlと~cssだけでゲームを作るぞ！！」という決意の元
-*<span style="color:red; font-size:48px;">WITHOUT JAVASCRIPT!!</span>*
-でゲームを作成するという~~馬鹿な~~楽しい挑戦についてあれこれ話します。
+- こんにちは、こんばんは、**misw55代のヘビ**です。普段はunityを使ってゲーム作ることがしばしばです。**misw55代のヘビ**です。
+- misw発表会にはほとんど毎回出席しているものの、普段の活動など含め**存在感が皆無**であることを自負&自覚しておりますので、この機会に名前だけでも覚えていただけたら幸いです。**私は５５代の『ヘビ』です!!!**(アドカレの私的利用)
 
 ## what is CSS?
 - [CSS](http://www.htmq.com/csskihon/001.shtml)（Cascading Style Sheets、カスケーディング・スタイル・シート) とは、webページのスタイル（見た目）を整えるために使われる言語のことです。「文字の色を指定する」「文字にアニメーションをつける」「画像の表示位置や大きさを指定する」などは全てCSSによって設定することができます。
@@ -33,30 +34,31 @@
 - **だけど！！！**
 - **だけれども！！！**
 
-　<strong>  
-　＼＿（**）＿／　　　／　意味なんて！  
-　　　　｜　　　　　／　求めないのが！！  
-    　　　　｜　　　　　＼　　<span style="font-size:32px;color:red;">浪漫</span>   
-　　　／　＼　　　　　＼　じゃないのか！！！  
-　</strong>  
-  
- Q: 我々は何故山に登る？  
-　A: そこに山があるから  
-  
- **Q: 我は何故cssでゲームを作る？  
-A: そこに！cssがあるならば..！！やらずにはいられないのが<span style="font-size:32px;">漢のヘビ</span>ってもんだろう...！！！**  
-　　　　　　　　　＿  
-　　　　　　　　／　-＼　　／ そこに  
-＿＿ヘビ＿＿＿／　／￣　／　CSSが  
-＼＿＿＿＿＿＿＿／　　　　＼　あるから  
-　　　　　　　　　　　　　　＼ 🐍（キリッ）  
+　<strong>　　　　　　
+　＼＿（**）＿／　　　／　意味なんて！
+　　　　｜　　　　　／　求めないのが！！
+    　　　　｜　　　　　＼　　<span style="font-size:32px;color:red;">浪漫</span> 
+　　　／　＼　　　　　＼　じゃないのか！！！
+　</strong>
+
+ Q: 我々は何故山に登る？　
+　A: そこに山があるから
+
+ **Q: 我は何故cssでゲームを作る？
+A: そこに！cssがあるならば..！！やらずにはいられないのが<span style="font-size:32px;">漢のヘビ</span>ってもんだろう...！！！**
+　　　　　　　　　＿
+　　　　　　　　／　-＼　　／ そこに
+＿＿ヘビ＿＿＿／　／￣　／　CSSが
+＼＿＿＿＿＿＿＿／　　　　＼　あるから　　　
+　　　　　　　　　　　　　　＼ 🐍（キリッ）
 
 - **（現在時刻： AM 02:57）**
 - **圧倒的！　⭐️深夜テンション⭐️**
 - まぁ　そんな感じで やってみた　Yo〜　（理由のこじつけ終了）
 - さぁさぁLet's go~~
 
-## How to ゲーム作る？
+## How to ゲーム作る？ (maybe チョット 退屈)
+### There are 4 Rules
 ### Rule 1: 
 - 画像は一切使いません！キャラクターはhtml&cssで描画します！！
 - やり方
@@ -97,9 +99,15 @@ A: そこに！cssがあるならば..！！やらずにはいられないのが
         - <code>:active（マウスダウンしてる『間だけ』スタイル適用）</code>や<code>:hover（マウスがのってる『間だけ』スタイル適用）</code>は存在するが、クリックで動作を発火させる、というものは存在しない
     - 擬似クリックボタンを作るんだ！！！
         - cssは「スタイルを適用する」という考え。
-        - ①<code>要素A: <label for="{id_name}"></label> </code>によって、クリックした時に <code>要素B: id="{id_name}"</code>のcheckbox<input type="checkbox">にチェックが入るようにする。
-        - ②<code>要素B:checked ~  要素C</code>によって、『チェックが入った』要素Bから相対的に指定した要素Cへ当てはめるスタイルを指定する。
-        - 以上①,②によって、<code>要素A</code>をクリックした時に<code>要素B</code>へチェックが入り、<code>要素B:checked</code>から<code>要素C</code>への相対パスが通るようになり、<code>要素C</code>へスタイルが適用される、という流れを作ることによって、クリックイベントを実装する。　
+        - やり方：
+            - ①要素Aにチェックが入った時のスタイルを記述する
+                - 例：<code>要素A: ＜label for="{id_name}"></label> </code>によって、要素Aをクリックした時に、チェックボックスである<code>要素B: ＜input type="checkbox" id="{id_name}"></code>にチェックが入るようにする。
+            - ②クリックによって要素Aにチェックが入るようにする
+                - 例：<code>要素B:checked ~ 要素C</code>によって、『チェックが入った』要素Bから相対的に指定した要素Cへ当てはめるスタイルを指定する。[参考](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Selectors)
+        
+        - 以上①,②によって、<code>要素A</code>をクリックした時に<code>要素B</code>へチェックが入り、<code>要素B:checked</code>から<code>要素C</code>へのスタイルの指定が通るようになり、<code>要素C</code>へスタイルが適用される、という流れを作ることにより、要素Aのクリックで他のスタイルを当てはめることができる。例えば要素Aにジャンプボタンを、スタイルとしてジャンプアニメーションを用いれば、ジャンプボタンのクリックでジャンプができるようになる。
+
+            
      - 実装例：
 ```
 <input type="checkbox" id="id-name">
@@ -127,12 +135,13 @@ click後
 ### Rule 3:
 - 点数を数える。cssで足し算しようze！
 - やり方：
-    - counterを使うんだ...このやり方を見つけるのは若干苦労したのだ、、、
-        - ①前述のように、何か動作を行った時にチェックボックスにチェックがつくようにする。
-        - ②```要素A{counter-reset: counter-name}```によって、要素Aでカウンター「counter-name」の値を0にセットする。（初期値0なので一度目は必要ない）
-        - ③```要素B:checked{counter-increment:counter-name 1}```によって、要素Bが登場する度にカウンター「counter-name」の値を+1する。
+    - [counter](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters)を使うんだ... ~~このやり方を見つけるのは若干苦労したのだ、、、~~
+        - ①Rule2のように、何か要素のクリックでチェックボックスにチェックがつくようにする。
+        - ②```要素A{counter-reset: counter-name}```によって、要素Aでカウンター「counter-name」の値を0にセットする。（初期値0なので一度目は必要ない?）
+        - ③```要素B:checked{counter-increment:counter-name 1}```によって、「チェックの入った要素B」が登場する度にカウンター「counter-name」の値を+1する。
         - ④```要素C::before{countent:counter(counter-name);}```によって、要素Cにカウンター「counter-name」の値を設定する。
-     - 実装例
+    - これによって、要素をクリックすることで（＝要素Bにチェックが入ることで）counterの値が増える、ということを表現できる。このcounterの値を得点として用いれば、得点を稼ぐゲームを実現できる。
+- 実装例
 ```
 <input type="checkbox" class="class-name">
 <input type="checkbox" class="class-name">
@@ -158,7 +167,7 @@ check後
 
 - cssで当たり判定を~~行う~~**行えねーよ！！**
     - cssでは『スタイル』を記述できます（n回目）
-    - この状況になったらこのイベントを発火する、という事はできません。
+    - この状況になったらこのイベントを発火する、という事は(多分)できません。
 - アニメーションの実行タイミング(delay)を指定することで、状況に応じたアニメーションを実行させよう。 
 
 - やり方 
@@ -174,19 +183,24 @@ check後
 ![](https://i.imgur.com/5n7FT2t.jpg)
 
 ### Rule 5:
-- Rule 1 〜 Rule 4を<span style="color:red">いい感じになるよう頑張って組み合わせて</span>ゲームを作る。頑張れ、、、
+- Rule 1 〜 Rule 4を<span style="color:red">いい感じになるよう頑張って組み合わせて</span>ゲームを作る。網羅はできていませんが、大まかの後世はこんな感じです！！！
 
 ## 完成品...（pc&chromeを推奨。）
+- 注意）ジャンプをした後は「リセット」を行う必要があります。例えばジャンプを二回する場合、「ジャンプ→リセット→ジャンプ」としてください。
+
 [github pages](https://snakesneaks.github.io/css-game/platform-game-snake/)
 
 [github repository](https://github.com/SnakeSneakS/css-game)　（これのindex.html及び参照しているcssがゲームのコードとなっています）
 
 iframe: ↓ 
 
-<iframe src="https://snakesneaks.github.io/css-game/platform-game-snake/" width="850px" height="550px"></iframe>
+<iframe id="game" src="https://snakesneaks.github.io/css-game/platform-game-snake/" width="850px" height="550px"></iframe>
 
 ****プレイありがとうございました！！****
 
+## どんな感じでできているかを見たい方は...
+- 下のiframeのゲームを参考に、、
+<iframe src="https://snakesneaks.github.io/css-game/platform-game-snake/how.html" width="850px" height="550px"></iframe>
 
 
 ## Conclusion 〜結論〜
@@ -194,11 +208,11 @@ iframe: ↓
 - が...**大変辛い、、！！！**
     - cssは所詮スタイル（見た目）を整えるための言語な訳で、
     - 分岐処理や配列などの機能が一切使えないわけで、、
-    - cssゲーム制作用のライブラリなんていうのも（恐らく）ないわけで、
-    - 無駄に大量の時間が浪費されるわけで、
+    - cssゲーム制作用のライブラリなんていうのもないわけで、（ヘビが見つけられていないだけかもしれない）
+    - 無駄に大量の時間が浪費されるわけで、(scss等は少し役立つかも)
     - cssだけっていう縛りプレイも意味は特にないわけで、
-
-<strong style="color:red; font-size:32px;"> 結論）人類はプログラミング言語を使うべきである </strong>
+  
+- <strong style="color:red; font-size:32px;"> 結論）人類はプログラミング言語を使うべきである </strong>
     - ```演算```機能、```Setinterval(一定時間ごとに実行)```機能、```function（関数）```機能、など~~当たり前の~~優れた機能を人類は使うべきだ、、、
 
 ~いい経験にはなりました。。。~
@@ -238,7 +252,14 @@ iframe: ↓
 
 ## 〜〜　おしまい　〜〜
 - ありがとうございました！
-- cssは見た目を整える上でとってもexcellentな言語ですが、プログラミング言語ではなくスタイルシート言語です！！
+- cssは見た目を整える上でとってもexcellentな言語（偉大なるcss職人の手にかかれば本当にすごい。cssの神作：[miswボカロ企画の1作品](https://recy23.github.io/vocalo/)。余談ですがmiswのボカロ企画は他にも音楽も映像もとてもとても素晴らしいものばかりでいたく感動いたしました。私ヘビは何もしていませんが、、）ですが、プログラミング言語ではなくスタイルシート言語です！！
+- ~p.s. javascript使え論を唱えましたが、ゲーム作るなら圧倒的に*Unity*が便利です~
+
+- twitter account: [@snakesneaks](https://twitter.com/snakesneaks)
+    - dmなど大歓迎しております。dmください、、、dm、、（砂漠の水感覚）
+    - 特に『一緒にゲーム作りたい』などのお誘いは神の雫のごとく大変喜びます。~私ヘビは特定の宗教を支持しておりませんが、、~
+    - なお以上の記事は全て私ヘビの分かる範囲で考え書いたものであり、事実と異なる点、異なる意見などもあるかもしれません。ご了承ください。
+
 
 <p id="thanks" style="color:red; font-size:32px">Thank You! </p>
 
