@@ -258,6 +258,7 @@ iframe: ↓
 - twitter account: [@snakesneaks](https://twitter.com/snakesneaks)
     - dmなど大歓迎しております。dmください、、、dm、、（砂漠の水感覚）
     - 特に『一緒にゲーム作りたい』などのお誘いは神の雫のごとく大変喜びます。~私ヘビは特定の宗教を支持しておりませんが、、~
+    - 他にも「今日寒くない？」などの~~つまらない~~一周回ってユーモラスな言葉でも大歓迎いたします
     - なお以上の記事は全て私ヘビの分かる範囲で考え書いたものであり、事実と異なる点、異なる意見などもあるかもしれません。ご了承ください。
 
 
@@ -273,7 +274,7 @@ iframe: ↓
             <div></div>
         </div>
         <div class="box">
-            <div class="t">misw　55代　ヘビ</div>
+            <div class="t">misw　55代　 ヘビ</div>
             <div class="t">感謝</div>
             <div class="t">css possible</div>
             <div class="t">Enjoy</div>
